@@ -1,0 +1,166 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ARCADELX — Limitless Gaming Xperience | Nilee Games</title>
+  <meta name="description" content="ARCADELX is a motion-sensing gaming kiosk by Nilee Games and Future Technologies Pvt. Ltd. Learn how it works, where to find it, and partnership details." />
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="assets/logo.svg" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="ARCADELX home">
+        <img src="assets/logo.svg" alt="ARCADELX logo" class="logo" />
+        <div class="brand-text">
+          <span class="brand-title">ARCADELX</span>
+          <span class="brand-sub">Limitless Gaming Xperience</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="games.html">Games</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="locations.html">Locations</a>
+        <a href="partners.html">Partners</a>
+        <a href="safety.html">Safety</a>
+        <a href="faq.html">FAQ</a>
+        <a href="privacy-policy.html">Privacy</a>
+      </nav>
+
+      <div class="cta-group">
+        <a class="btn btn-outline" href="mailto:info@nileegames.com">Contact</a>
+        <a class="btn btn-primary" href="games.html">Explore Games</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>ARCADELX — Limitless Gaming Xperience</h1>
+          <p class="lede">A motion-sensing kiosk platform by Nilee Games and Future Technologies Pvt. Ltd. Play full-body and gesture-based games without controllers — the kiosk senses your movement in real time to drive gameplay.</p>
+
+          <ul class="key-points">
+            <li><strong>No controllers.</strong> Play with natural body movements and gestures.</li>
+            <li><strong>Quick sessions.</strong> Scan a QR, pay, and start playing within moments.</li>
+            <li><strong>Privacy-first.</strong> Sensors process motion data for gameplay; ARCADELX does not store player photos or create facial recognition profiles.</li>
+          </ul>
+
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="games.html">Explore Games</a>
+            <a class="btn btn-ghost" href="how-it-works.html">How It Works</a>
+            <a class="btn btn-outline" href="partners.html">Partner With Us</a>
+          </div>
+        </div>
+
+        <div class="hero-demo" aria-hidden="false">
+          <div class="kiosk-mock">
+            <svg class="kiosk-illustration" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kiosk illustration">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#0f172a" />
+                  <stop offset="100%" stop-color="#071029" />
+                </linearGradient>
+              </defs>
+              <rect x="0" y="0" width="400" height="600" rx="20" fill="url(#g1)" />
+              <rect x="34" y="40" width="332" height="200" rx="10" fill="#02121f" stroke="#18324d" />
+              <rect x="60" y="260" width="280" height="260" rx="8" fill="#071827" stroke="#133046" />
+
+              <!-- sensor area -->
+              <circle cx="200" cy="120" r="8" fill="#00e5ff" />
+              <text x="200" y="190" font-size="12" text-anchor="middle" fill="#7dd3fc">Sensor</text>
+            </svg>
+
+            <div class="demo-canvas-wrap">
+              <canvas id="motionDemo" width="320" height="180" aria-label="Motion demo canvas"></canvas>
+              <div class="demo-controls">
+                <button id="simulateMotion" class="btn btn-small">Simulate Motion (move mouse)</button>
+                <button id="startSessionBtn" class="btn btn-small btn-primary">Start Session</button>
+              </div>
+              <div class="demo-caption">Move your mouse over the demo to simulate motion-sensing input. This demo only uses pointer data locally — the kiosk uses sensors for real-time gameplay and does not save photos.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary container">
+      <h2>Information-First: What to Expect</h2>
+      <p>ARCADELX kiosks are designed to give venues a compact, accessible gaming experience. Sessions are short, clear on pricing before payment, and controlled by your movement — not by handheld controllers. The sensor processes motion data for gameplay only; it is not intended to capture photographs or function as CCTV.</p>
+
+      <div class="info-grid">
+        <article>
+          <h3>Quick Sessions</h3>
+          <p>Browse games, scan the QR code, complete payment and start within minutes.</p>
+        </article>
+        <article>
+          <h3>Privacy-focused</h3>
+          <p>Motion inputs are processed in real-time and may be stored briefly for session continuity; ARCADELX does not intentionally store player photos.</p>
+        </article>
+        <article>
+          <h3>Venue Friendly</h3>
+          <p>Designed for malls, restaurants, hotels, schools, offices, gyms and events. See <a href="locations.html">Where to Find ARCADELX</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="games-preview container">
+      <h2>Featured Games</h2>
+      <p class="muted">A sample from our catalogue — browse the full list to learn session lengths and gameplay types.</p>
+      <div class="card-grid">
+        <div class="game-card">
+          <h4>Neon Sprint</h4>
+          <p class="meta">Gameplay: Full-body runner • Players: 1 • Session: 2–4 minutes</p>
+          <p>Run and dodge using lateral steps — the sensor maps your stride and gestures to dodge lanes and pick up power-ups.</p>
+          <a class="link" href="games.html">View details</a>
+        </div>
+
+        <div class="game-card">
+          <h4>Rhythm Wave</h4>
+          <p class="meta">Gameplay: Rhythm & movement • Players: 1–2 • Session: 3–5 minutes</p>
+          <p>Hit beats with arm patterns and foot taps. Designed for quick, energetic play that adapts to player motion.</p>
+          <a class="link" href="games.html">View details</a>
+        </div>
+
+        <div class="game-card">
+          <h4>Strike Arena</h4>
+          <p class="meta">Gameplay: Gesture-based combat • Players: 1–2 • Session: 4–6 minutes</p>
+          <p>Use gestures to strike and block in short, exciting rounds. Intuitive controls without controllers.</p>
+          <a class="link" href="games.html">View details</a>
+        </div>
+      </div>
+
+      <div class="more-link"><a class="btn btn-outline" href="games.html">Browse Full Game Catalogue</a></div>
+    </section>
+
+    <section class="privacy-note container">
+      <h3>How the sensor is used</h3>
+      <p class="muted">The kiosk uses depth and motion sensing to interpret player movements for gameplay. It is not intended to capture photos or function as CCTV. For full details see our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Nilee Games and Future Technologies Pvt. Ltd.</strong>
+        <div>ARCADELX — Limitless Gaming Xperience</div>
+        <div><a href="mailto:info@nileegames.com">info@nileegames.com</a></div>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="refund-policy.html">Refund & Cancellation Policy</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

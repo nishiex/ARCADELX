@@ -1,0 +1,26 @@
+﻿import type { ReactNode } from "react";
+import { ArrowUpRight } from "@phosphor-icons/react";
+
+export function NeonButton({ href, children, className = "" }: { href: string; children: ReactNode; className?: string }) {
+  return (
+    <a
+      href={href}
+      className={`inline-flex items-center justify-center gap-2 px-4 py-2 text-white font-bold uppercase tracking-wider text-sm rounded-none bg-gradient-to-r from-[#66e6ff] via-[#5d8dff] to-[#e868ff] shadow-[0_0_18px_rgba(90,203,255,0.18)] hover:shadow-[0_0_32px_rgba(90,203,255,0.28)] transition-transform duration-200 transform-gpu hover:-translate-y-[2px] ${className}`}
+    >
+      <span className="leading-none">{children}</span>
+      <ArrowUpRight size={16} weight="bold" />
+    </a>
+  );
+}
+
+export function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: ReactNode; description?: ReactNode }) {
+  return (
+    <div className="lx-section-heading lx-scroll-reveal flex items-end justify-between mb-[58px]">
+      <div>
+        <p className="lx-eyebrow text-[11px] tracking-[0.15em] uppercase text-[var(--cyan)] mb-6">{eyebrow}</p>
+        <h2 className="text-[clamp(2.8rem,4.7vw,5rem)] font-normal mb-0">{title}</h2>
+      </div>
+      {description && <p className="text-[#71829d] text-[15px] leading-[1.7] max-w-[275px]">{description}</p>}
+    </div>
+  );
+}
