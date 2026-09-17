@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { memo, useState, useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { Cube, Play, Plug, Pulse, UsersThree } from "@phosphor-icons/react";
@@ -69,31 +69,33 @@ const UI_SCREENS = [
   "/images/Catalog (1).png",
   "/images/Game_Play (1).png",
   "/images/Payment_Gatewayt (3).png",
-  "/images/Kiosk_Machine_With Embalem_01.png"
 ];
+
+// Single source of truth for the physical kiosk shell.
+const KIOSK_SHELL_SRC =
+  "/images/Kiosk_Machine_With Embalem_01_Transparent_Middle.png";
 
 export function KioskVisual({ compact = false }: { compact?: boolean }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const images = gsap.utils.toArray<HTMLElement>('.gsap-kiosk-img');
+      const images = gsap.utils.toArray<HTMLElement>(".gsap-kiosk-img");
       if (images.length < 2) return;
 
-      // Set initial state
       gsap.set(images, { opacity: 0 });
-      gsap.set(images[0], { opacity: 0.8 });
+      gsap.set(images[0], { opacity: 1 });
 
       const tl = gsap.timeline({ repeat: -1 });
 
       images.forEach((img, i) => {
         const nextImg = images[(i + 1) % images.length];
         tl.to(img, { opacity: 0, duration: 1, ease: "power1.inOut", delay: 2.5 })
-          .to(nextImg, { opacity: 0.8, duration: 1, ease: "power1.inOut" }, "<");
+          .to(nextImg, { opacity: 1, duration: 1, ease: "power1.inOut" }, "<");
       });
     }, containerRef);
 
-    return () => ctx.revert(); // cleanup on unmount
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -102,36 +104,36 @@ export function KioskVisual({ compact = false }: { compact?: boolean }) {
       className={`lx-kiosk-wrap ${compact ? "lx-kiosk-compact" : ""} relative z-10 flex items-center justify-center w-[92vw] max-w-[420px] md:w-auto md:max-w-none`}
     >
       <div className="lx-kiosk-glow" />
-      <div className="lx-kiosk relative md:absolute w-full md:w-auto">
-        <div className="lx-kiosk-top text-[clamp(12px,3.6vw,16px)] tracking-[0.2em]">
-          <span className="font-display text-[clamp(14px,4.2vw,20px)]">ARCADELX</span>
-          <b className="text-[clamp(14px,4.0vw,20px)]">AX</b>
-        </div>
-        <div className="lx-kiosk-screen relative overflow-hidden flex flex-col justify-center items-center">
-          {/* Keep the grid for the retro effect */}
-          <div className="lx-temple-grid z-20 pointer-events-none" />
 
-          {/* Carousel of UI screens */}
-          <div className="absolute inset-0 z-10">
-            {UI_SCREENS.map((screen, idx) => (
-              <div
-                key={screen}
-                className="gsap-kiosk-img absolute inset-0"
-                style={{ opacity: idx === 0 ? 0.8 : 0 }}
-              >
-                <Image
-                  src={screen}
-                  alt={`Kiosk Screen ${idx + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
+      {/* Physical kiosk — the PNG IS the kiosk. No recreated card/frame/header. */}
+      <div className="lx-kiosk-visual relative w-full md:w-auto">
+        <Image
+          src={KIOSK_SHELL_SRC}
+          alt="ArcadeLX Gaming Kiosk"
+          fill
+          priority
+          className="lx-kiosk-shell object-contain pointer-events-none select-none"
+        />
 
-          <small className="relative z-30 text-[clamp(8px,2.2vw,10px)] tracking-[0.2em] mt-2 drop-shadow-md">MOVE TO PLAY</small>
+        {/* Screen overlay — clipped strictly to the blank display area of the PNG */}
+        <div className="lx-kiosk-display absolute overflow-hidden">
+          {UI_SCREENS.map((screen, idx) => (
+            <div
+              key={screen}
+              className="gsap-kiosk-img absolute inset-0"
+              style={{ opacity: idx === 0 ? 1 : 0 }}
+            >
+              <Image
+                src={screen}
+                alt={`Kiosk Screen ${idx + 1}`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          ))}
         </div>
       </div>
+
       {!compact && (
         <p className="lx-visual-label block mt-3 text-[clamp(10px,3vw,11px)] text-center md:absolute md:bottom-[18px] md:right-0 md:text-right">
           GAMING
@@ -146,7 +148,7 @@ export function KioskVisual({ compact = false }: { compact?: boolean }) {
 export default function Hero() {
   return (
     <section
-      className="lx-hero grid grid-cols-1 md:grid-cols-[0.94fr_1.06fr] md:min-h-[690px] relative"
+      className="lx-hero grid grid-cols-1 md:grid-cols-[0.94fr_1.06fr] md:min-h-[520px] relative"
       id="home"
     >
       <div className="lx-parallax-bg" />
@@ -164,7 +166,14 @@ export default function Hero() {
           spaces.
         </p>
         <div className="lx-actions lx-hero-reveal flex items-center gap-[28px] mt-[38px] mb-[46px] ">
-          <NeonButton href="#contact">Order now</NeonButton>
+         <a className="lx-cta-primary-pill" href="mailto:hello@arcadelx.com">
+            Order now
+            <span className="lx-pill-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.33333 7H11.6667M11.6667 7L7 2.33333M11.6667 7L7 11.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </a>
           <a
             className="lx-watch inline-flex items-center gap-2 text-[#fff] text-[14px]"
             href="#video"
@@ -212,9 +221,3 @@ export default function Hero() {
     </section>
   );
 }
-
-
-
-
-
-

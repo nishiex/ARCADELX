@@ -1,8 +1,8 @@
-import type { Icon } from "@phosphor-icons/react";
+﻿import type { Icon } from "@phosphor-icons/react";
 import { CreditCard, Cube, GameController, Heart, Plug, Pulse, SlidersHorizontal } from "@phosphor-icons/react";
 
 export type Feature = { number: string; title: string; copy: string; icon: Icon };
-export type Game = { title: string; category: string; number: string };
+export type Game = { title: string; category: string; number: string; poster?: string };
 export type GalleryItem = { label: string; title: string; category: string };
 export type Video = { title: string; time: string };
 export type Stat = { value: string; label: string };
@@ -18,12 +18,15 @@ export const features: Feature[] = [
   { number: "07", title: "Secure Payments", copy: "UPI, card & wallet support", icon: CreditCard },
 ];
 export const games: Game[] = [
-  { title: "THE LOST TEMPLE", category: "Adventure", number: "01" },
-  { title: "BASKETBALL HOOPS", category: "Sports", number: "02" },
-  { title: "FOOTBALL STRIKE", category: "Sports", number: "03" },
-  { title: "RACING CHALLENGE", category: "Racing", number: "04" },
-  { title: "FRUIT NINJA", category: "Arcade", number: "05" },
-  { title: "DANCE BEAT", category: "Fitness", number: "06" },
+  { title: "TENNIS STRIKE", category: "Sports", number: "01", poster: "Tennis_Strike_Poster_1080x1920.png" },
+  { title: "SAND RACERS", category: "Racing", number: "02", poster: "Sand_Racers_Poster_1080x1920.png" },
+  { title: "RHYTHM SLASH", category: "Rhythm", number: "03", poster: "Rhythm_Slash_Posters_1080x1920.png" },
+  { title: "KNOCK OUT BOXING", category: "Sports", number: "04", poster: "Knock_Out_Boxing_Poster_1080x1920.png" },
+  { title: "JETHALAL SPEED KA TADAKA", category: "Arcade", number: "05", poster: "Jethalal_Speed_Ka_Tadaka_Game_Poster_1080x1920.png" },
+  { title: "GOAL DEFENDER", category: "Sports", number: "06", poster: "Goal_Defender_Poster_1080x1920.png" },
+  { title: "EMPIRE SAVIOR", category: "Adventure", number: "07", poster: "Empire_Savior_Poster1080x1920.png" },
+  { title: "DOWNHILL RIDERS", category: "Racing", number: "08", poster: "Downhill_Riders_Game_Poster_1080x1920.png" },
+  { title: "BEAT TAP", category: "Music", number: "09", poster: "Beat_Tap_Game_Poster_1080x1920.png" },
 ];
 export const galleryItems: GalleryItem[] = [
   { label: "Kiosk / 01", title: "Designed to move", category: "kiosk" },

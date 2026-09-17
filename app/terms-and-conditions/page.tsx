@@ -2,11 +2,11 @@
 import TermsPage from "../../components/TermsPage";
 
 export const metadata: Metadata = {
-  title: "Refund & Cancellation Policy | ARCADELX",
+  title: "Terms & Conditions | ARCADELX",
   description:
-    "Learn about ARCADELX gaming payment cancellations, refunds, failed transactions, and gaming-session issues. ARCADELX is a product of Nilee Games and Future Technologies Pvt. Ltd.",
+    "ARCADELX Terms & Conditions — rules, obligations, and legal terms governing the use of ARCADELX products and services.",
   alternates: {
-    canonical: "/refund-cancellation-policy",
+    canonical: "/terms-and-conditions",
   },
 };
 

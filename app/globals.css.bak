@@ -1145,7 +1145,6 @@ h2 em {
   min-height: 690px;
   padding: 22px 40px 0;
   position: relative;
-  justify-items: center;
 }
 .lx-parallax-bg {
   background:
@@ -1574,33 +1573,8 @@ h2 em {
   margin: 14px 0 16px;
   overflow: hidden;
   position: relative;
-}
-/* Poster layout: preserve portrait 9:16 posters without cropping */
-.lx-game-art .lx-poster {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-.lx-game-art .lx-poster img, .lx-game-art img {
-  width: auto;
-  height: 100%;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-
-/* Ensure the first child of .lx-game-art (poster wrapper) fills available vertical space and centers the image */
-.lx-game-art > div {
-  flex: 1 1 0;
-  min-height: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.lx-game-art::before {
+}\n/* Poster layout: preserve portrait 9:16 posters without cropping */\n.lx-game-art .lx-poster {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n}\n.lx-game-art .lx-poster img, .lx-game-art img {\n  width: auto;\n  height: 100%;\n  max-width: 100%;\n  object-fit: contain;\n  display: block;\n}\n
+\n/* Ensure the first child of .lx-game-art (poster wrapper) fills available vertical space and centers the image */\n.lx-game-art > div {\n  flex: 1 1 0;\n  min-height: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.lx-game-art::before {
   border: 1px solid rgba(0, 217, 255, 0.42);
   border-radius: 50%;
   content: "";
@@ -6818,8 +6792,6 @@ element.style {
   .lx-kiosk-visual { height: min(60vh, 480px); }
   .lx-visual-label { position: static; max-width: none; }
 }
-
-
 
 
 

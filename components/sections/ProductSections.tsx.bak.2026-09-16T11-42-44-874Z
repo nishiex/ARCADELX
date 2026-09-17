@@ -308,6 +308,5 @@ export function FinalCTA() {
         </div>
       </div>
       <KioskVisual compact />
-    </section>
-  );
+        );
 }

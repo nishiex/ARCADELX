@@ -1,0 +1,120 @@
+﻿export function FeaturedGames() {
+  const breakpoints = { 0: { slidesToShow: 1 }, 640: { slidesToShow: 2 }, 768: { slidesToShow: 3 }, 1024: { slidesToShow: 4 }, 1280: { slidesToShow: 5 }, 1440: { slidesToShow: 6 } };
+  const [index, setIndex] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(1);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const gap = 14;
+
+  useEffect(() => {
+    const update = () => {
+      const width = window.innerWidth;
+      const keys = Object.keys(breakpoints).map(Number).sort((a, b) => a - b);
+      let chosen = 1;
+      for (const bp of keys) {
+        if (width >= bp) chosen = (breakpoints as any)[bp].slidesToShow;
+      }
+      setSlidesToShow(chosen);
+    };
+    update();
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current || !trackRef.current) return;
+    const containerWidth = containerRef.current.offsetWidth || 1;
+    const slideWidth = (containerWidth - (slidesToShow - 1) * gap) / slidesToShow;
+    const targetX = -index * (slideWidth + gap);
+    gsap.to(trackRef.current, { x: targetX, duration: 0.6, ease: 'power3.out' });
+  }, [index, slidesToShow]);
+
+  useEffect(() => {
+    const maxIndex = Math.max(0, Math.ceil(games.length - slidesToShow));
+    if (index > maxIndex) setIndex(maxIndex);
+  }, [slidesToShow]);
+
+  const maxIndex = Math.max(0, Math.ceil(games.length - slidesToShow));
+
+  return (
+    <section className="lx-section lx-games px-[40px] py-[110px]" id="games">
+      <SectionHeading
+        eyebrow="Featured games"
+        title={
+          <>
+            A world of games.
+            <br />
+            <em>More movement.</em>
+          </>
+        }
+        description="Different players. Different moods. One unforgettable arcade experience."
+      />
+
+      <div className="relative" style={{ overflow: 'hidden' }} ref={containerRef}>
+        <div ref={trackRef} className="flex gap-[14px]">
+          {games.map(({ title, category, number, poster }, idx) => (
+            <article
+              className={`lx-game-card game-${number} flex-shrink-0 p-[12px] cursor-pointer`}
+              key={title}
+              style={{
+                width: `calc((100% - ${(slidesToShow - 1) * gap}px) / ${slidesToShow})`,
+                minWidth: '220px',
+                minHeight: '520px',
+              }}
+              onClick={() => setIndex(idx)}
+              tabIndex={0}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') setIndex(idx);
+              }}
+            >
+              <span className="text-[#71829d]">{number}</span>
+              <div className="lx-game-art mt-2">
+                <div className="lx-poster w-full h-full flex items-center justify-center">
+                  <img
+                    src={`/images/${poster}`}
+                    alt={`${title} poster`}
+                    className="lx-poster-img"
+                    draggable={false}
+                    style={{ pointerEvents: 'none' }}
+                  />
+                </div>
+
+                <div style={{ position: 'absolute', left: 0, right: 0, bottom: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ background: '#2a1633', padding: '12px 18px', borderRadius: '6px', color: '#fff', fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+                    {title.split(' ').slice(0, 3).join(' ')}
+                  </div>
+                </div>
+              </div>
+
+              <small className="text-[#71829d] mt-3">{category}</small>
+              <h3 className="mt-2">{title}</h3>
+            </article>
+          ))}
+        </div>
+
+        <button
+          aria-label="Previous"
+          onClick={() => setIndex((i) => Math.max(0, i - 1))}
+          disabled={index === 0}
+          className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center z-10"
+          style={{ background: index === 0 ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.9)' }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <button
+          aria-label="Next"
+          onClick={() => setIndex((i) => Math.min(maxIndex, i + 1))}
+          disabled={index === maxIndex}
+          className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center z-10"
+          style={{ background: index === maxIndex ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.9)' }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </section>
+  );
+}

@@ -38,12 +38,14 @@ export default function SiteHeader() {
             </a>
           ))}
         </nav>
-        <NeonButton
-          className="lx-desktop-order"
-          href="#contact"
-        >
-          Order now
-        </NeonButton>
+        <a className="lx-cta-primary-pill" href="mailto:hello@arcadelx.com">
+            Order now
+            <span className="lx-pill-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.33333 7H11.6667M11.6667 7L7 2.33333M11.6667 7L7 11.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </a>
         <button
           className={`lx-menu-button ${menuOpen ? "is-open" : ""} flex items-end flex-col gap-[5px] py-[10px] pl-[10px] pr-0 md:hidden`}
           onClick={() => setMenuOpen((value) => !value)}
@@ -71,9 +73,7 @@ export default function SiteHeader() {
             {link}
           </a>
         ))}
-        <NeonButton href="#contact" className="inline-flex mobile-order">
-          Order now
-        </NeonButton>
+       
       </nav>
     </>
   );
