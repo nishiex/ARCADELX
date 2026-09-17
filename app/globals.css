@@ -2792,7 +2792,7 @@ h2 em {
   .lx-kiosk {
     left: 50%;
     position: absolute;
-    top: 50%;
+    top: 45%;
     transform: translate(-50%, -50%) perspective(700px) rotateY(-8deg);
     width: 282px;
     z-index: 2;
@@ -6628,6 +6628,103 @@ h2 em {
   .tc-prohibited-item,
   .tc-install-item,
   .tc-tech-item {
+    transition: none !important;
+  }
+}
+﻿/* ------------------------------------------------------------------
+   Trusted by — editorial venue list for Terms/Legal pages
+   Matches ARCADELX legal-page design system (dark, editorial, thin lines)
+   ------------------------------------------------------------------ */
+.tc-trusted {
+  padding: 120px 40px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.tc-trusted-inner {
+  display: grid;
+  grid-template-columns: minmax(320px, 640px) 1fr;
+  gap: 110px;
+  align-items: start;
+}
+.tc-trusted-left {
+  max-width: 640px;
+}
+.tc-trusted-title {
+  font-size: clamp(2.8rem, 6.2vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin: 6px 0 18px;
+  max-width: 640px;
+}
+.tc-trusted-desc {
+  color: #8fa3bb;
+  font-family: var(--font-body), sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+.tc-venue-list {
+  display: flex;
+  gap: 34px;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+.tc-venue-block {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 8px;
+  padding-left: 28px;
+  position: relative;
+}
+.tc-venue-block + .tc-venue-block {
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+.tc-venue-num {
+  color: #71829d;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: var(--font-body), sans-serif;
+}
+.tc-venue-name {
+  color: #f6f7fb;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: transform 300ms ease;
+}
+.tc-venue-block:hover .tc-venue-num,
+.tc-venue-block:focus .tc-venue-num {
+  color: var(--cyan);
+}
+.tc-venue-block:hover .tc-venue-name,
+.tc-venue-block:focus .tc-venue-name {
+  transform: translateX(3px);
+}
+.tc-venue-block:hover,
+.tc-venue-block:focus {
+  border-left-color: rgba(255,255,255,0.12);
+}
+
+/* -- Responsive -------------------------------------------------- */
+@media (max-width: 767px) {
+  .tc-trusted { padding: 70px 20px; }
+  .tc-trusted-inner { grid-template-columns: 1fr; gap: 28px; }
+  .tc-trusted-title { font-size: clamp(2.4rem, 11vw, 4rem); }
+  .tc-venue-list { flex-direction: column; gap: 0; }
+  .tc-venue-block { padding: 16px 0; padding-left: 0; }
+  .tc-venue-block + .tc-venue-block { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tc-venue-block,
+  .tc-venue-name {
     transition: none !important;
   }
 }

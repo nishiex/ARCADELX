@@ -1,4 +1,5 @@
 "use client";
+import TrustedBy from "./sections/TrustedBy";
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -222,6 +223,9 @@ export default function TermsPage() {
       </div>
 
       {/* ── Mobile TOC ────────────────────────────────────────── */}
+
+      <TrustedBy />
+
       <div className="tc-mobile-toc-wrap">
         <MobileTOC />
       </div>
