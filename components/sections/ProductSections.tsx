@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
@@ -287,26 +287,44 @@ export function Statistics() {
 export function FinalCTA() {
   return (
     <section
-      className="lx-final-cta lx-scroll-reveal px-[40px] py-[110px] flex items-center gap-[40px]"
+      className="lx-final-cta lx-scroll-reveal"
       id="contact"
     >
-      <div className="flex-1">
-        <p className="lx-eyebrow text-[11px] tracking-[0.2em] uppercase text-[var(--cyan)]">Ready when you are</p>
-        <h2 className="text-[clamp(2rem,4vw,2.6rem)] font-normal">
-          Ready to bring
+      {/* background decoration */}
+      <div className="lx-cta-bg" aria-hidden="true">
+        <div className="lx-cta-grid" />
+        <div className="lx-cta-glow lx-cta-glow-1" />
+        <div className="lx-cta-glow lx-cta-glow-2" />
+      </div>
+
+      {/* centered copy */}
+      <div className="lx-cta-copy lx-cta-centered">
+        <p className="lx-eyebrow">GET STARTED</p>
+        <h2 className="lx-cta-heading">
+          <span className="lx-cta-line1">Ready to experience</span>
           <br />
-          <em>ArcadeLX to your space?</em>
+          <span className="lx-cta-line3">Limitless Gaming?</span>
         </h2>
-        <p className="text-[#71829d] mt-3">Get pricing, customization options, and installation support.</p>
-        <div className="lx-actions mt-6 flex items-center gap-[18px]">
-          <NeonButton href="mailto:hello@arcadelx.com">Order now</NeonButton>
-          <a className="lx-watch inline-flex items-center text-[#fff]" href="mailto:hello@arcadelx.com">
-            Request a demo
+        <p className="lx-cta-desc lx-cta-desc-centered">
+          Discover immersive motion-sensing gaming built for the next generation of play.
+        </p>
+        <div className="lx-cta-actions lx-cta-actions-centered">
+          <a className="lx-cta-primary-pill" href="mailto:hello@arcadelx.com">
+            Get Started
+            <span className="lx-pill-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2.33333 7H11.6667M11.6667 7L7 2.33333M11.6667 7L7 11.6667" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a className="lx-cta-ghost-pill" href="#about">
+            Explore ARCADELX
           </a>
         </div>
+        <p className="lx-cta-microcopy">
+          Experience ARCADELX at participating locations.
+        </p>
       </div>
-      <KioskVisual compact />
     </section>
   );
 }
-

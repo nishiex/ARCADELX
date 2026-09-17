@@ -5,24 +5,7 @@ export function NeonButton({ href, children, className = "" }: { href: string; c
   return (
     <a
       href={href}
-      style={{
-        background: "linear-gradient(90deg, #00d9ff, #168cff 35%, #7a00ff 70%, #ff00d4)",
-        padding: "0 24px",
-        minHeight: "46px",
-        fontSize: "15px",
-        color: "#fff",
-        fontWeight: 500,
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "8px",
-        transition: "transform 250ms ease",
-        textDecoration: "none",
-        whiteSpace: "nowrap",
-      }}
       className={`lx-neon-btn ${className}`}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-2px)")}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
     >
       <span>{children}</span>
       <ArrowUpRight size={18} weight="bold" />

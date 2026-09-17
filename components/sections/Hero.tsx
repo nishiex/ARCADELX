@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { memo, useState, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -69,6 +69,7 @@ const UI_SCREENS = [
   "/images/Catalog (1).png",
   "/images/Game_Play (1).png",
   "/images/Payment_Gatewayt (3).png",
+  "/images/Kiosk_Machine_With Embalem_01.png"
 ];
 
 export function KioskVisual({ compact = false }: { compact?: boolean }) {

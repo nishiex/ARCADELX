@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -12,7 +12,7 @@ export default function SiteHeader() {
   return (
     <>
       <header
-        className={`lx-header flex items-center h-[96px] justify-between w-full mx-auto max-w-[1280px] px-[40px] relative z-20`}
+        className={`lx-header ${menuOpen ? "is-open" : ""}`}
       >
         <a href="#home" className="lx-brand block" aria-label="ArcadeLX home">
           <Image
@@ -25,7 +25,7 @@ export default function SiteHeader() {
           />
         </a>
         <nav
-          className="lx-nav flex gap-[30px] ml-auto mr-[56px]"
+          className="lx-nav"
           aria-label="Primary navigation"
         >
           {links.map((link) => (
@@ -39,7 +39,7 @@ export default function SiteHeader() {
           ))}
         </nav>
         <NeonButton
-          className="hidden md:inline-flex lx-desktop-order"
+          className="lx-desktop-order"
           href="#contact"
         >
           Order now
